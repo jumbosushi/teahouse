@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         # Sends email to user when user is created.
-        ExampleMailer.welcome_email(@user).deliver
+        TeaMailer.welcome_email(@user).deliver_now
 
         format.html { redirect_to @user, notice: 'User is created!' }
         format.json { render :show, status: :created, location: @user }
